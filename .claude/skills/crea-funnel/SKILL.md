@@ -29,6 +29,7 @@ Chiedigli di **dettare** (microfono della tastiera o della chat) e parlare come 
    - **Call**: lascia i dati, risponde a 3 domande, prenota sul calendario. Per servizi sopra i 200 €. Chiedi se la call è **in studio, al telefono o online**: se è in studio e la gente arriva da tutta Italia (YouTube), una delle 3 domande deve essere «Riesci a venire a [città]?».
    - **Regalo**: lascia i dati e riceve una guida, un video, una checklist.
    - **Vendita diretta**: lascia i dati e paga. Solo sotto i 200 €.
+   - **Iscrizione a un webinar o a un evento** (anche registrato): lascia i dati e riceve data, ora e link. Usa il tipo `regalo`: `CONFIG.regalo` = link del gruppo WhatsApp o della pagina del webinar, `testoAzione` = «Entra nel gruppo WhatsApp» o «Salva la data». Nel titolo la promessa del webinar, nel sottotitolo **giorno e ora**; nella pagina di grazie ripeti giorno e ora e di' cosa succede dopo (promemoria, link il giorno prima). Se i posti dell'offerta sono davvero limitati, si può dire, con il numero vero.
 5. **Da dove arriva la gente** (video YouTube, Instagram, inserzioni, passaparola). Decide quanto deve essere lunga la pagina (vedi fase 3).
 6. **Le prove vere**: testimonianze con nome e lavoro, numeri reali, anni di esperienza, certificazioni.
 7. **I colori e il logo**: chiedi il sito attuale, il profilo Instagram, oppure di caricare il logo. Ricava 1 colore principale e 1 scuro. Se non ha niente, proponi tu 2 palette e fagli scegliere.
