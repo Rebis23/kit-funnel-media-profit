@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- TESTO: titolo della scheda e descrizione per Google e WhatsApp -->
+<title>Titolo della pagina | Nome dello studio</title>
+<meta name="description" content="Sottotitolo della pagina.">
+<meta property="og:title" content="Titolo della pagina">
+<meta property="og:description" content="Sottotitolo della pagina.">
+<meta name="theme-color" content="#C61C1A"><!-- lo aggiorna il codice con --colore -->
+<style>
+/* ── I colori del cliente: si cambiano solo qui ───────────────────
+   --colore    bottoni e dettagli
+   --su-colore testo sopra il colore (#fff su colori scuri, #111 su colori chiari)
+   --scuro     fascia in alto */
+:root{--colore:#C61C1A;--su-colore:#fff;--scuro:#111}
+*{box-sizing:border-box}html,body{margin:0}
+body{font:18px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1b1b1b;background:#fff}
+.banda{background:var(--scuro);color:#fff;text-align:center;font-weight:700;font-size:15px;padding:10px 16px}
+.top{display:flex;justify-content:center;padding:14px 16px 0}
+.logo{max-height:44px;max-width:180px}
+.marchio{font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:14px;color:#444}
+main,.grazie{max-width:640px;margin:0 auto;padding:0 16px}
+section{padding:28px 0}
+.hero{text-align:center;padding-top:18px}
+h1{font-size:31px;line-height:1.15;margin:0 0 12px;letter-spacing:-.01em}
+.sotto{font-size:19px;margin:0 0 20px;color:#333}
+.foto{width:100%;max-width:440px;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block;margin:0 auto 20px;cursor:pointer}
+.cta{display:block;width:100%;max-width:460px;margin:0 auto;border:0;border-radius:14px;padding:17px 18px;background:var(--colore);color:var(--su-colore);font-family:inherit;font-weight:700;font-size:19px;line-height:1.25;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+.cta small{display:block;font-weight:500;font-size:13.5px;opacity:.85;margin-top:3px}
+.cta:active{transform:translateY(1px)}
+h2{font-size:24px;line-height:1.2;margin:0 0 16px;text-align:center}
+.lista{list-style:none;padding:0;margin:0 auto;max-width:520px}
+.lista li{display:flex;gap:12px;align-items:flex-start;padding:10px 0}
+.lista li::before{content:"✓";flex:none;width:28px;height:28px;border-radius:50%;background:var(--colore);color:var(--su-colore);display:grid;place-items:center;font-weight:800;font-size:15px;margin-top:1px}
+.prova{background:#f6f5f3;margin:0 -16px;padding:28px 16px}
+.voce{background:#fff;border-radius:16px;padding:18px;margin:0 auto 12px;max-width:520px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.voce p{margin:0 0 10px;font-size:17px}
+.chi{display:flex;gap:10px;align-items:center;font-size:15px}
+.chi img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.chi b{display:block}
+.prezzo{text-align:center;font-size:34px;font-weight:800;margin:0 0 14px}
+.finale{text-align:center}
+footer{max-width:640px;margin:0 auto;padding:30px 16px 110px;text-align:center;font-size:13px;color:#777}
+footer p{margin:3px 0}footer a{color:#777}
+.fisso{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);box-shadow:0 -4px 16px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s;z-index:5}
+.fisso.su{transform:none}
+.fisso .cta{padding:14px;font-size:18px}
+.velo{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10;display:flex;align-items:flex-end;justify-content:center}
+.velo[hidden]{display:none}
+.scheda{background:#fff;width:100%;max-width:520px;max-height:92vh;overflow:auto;border-radius:20px 20px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom));position:relative}
+@media(min-width:700px){.velo{align-items:center}.scheda{border-radius:20px}}
+.x{position:absolute;right:10px;top:8px;border:0;background:none;font-size:28px;line-height:1;color:#888;cursor:pointer;padding:6px}
+.scheda h3{margin:0 30px 4px 0;font-size:22px;line-height:1.2}
+.scheda .passi{font-size:13px;color:#888;margin:0 0 14px}
+.campo{margin:0 0 12px}
+.campo label{display:block;font-weight:600;font-size:15px;margin:0 0 5px}
+input[type=text],input[type=email],input[type=tel]{width:100%;height:52px;border:1px solid #d6d6d6;border-radius:12px;padding:0 14px;font:inherit;font-size:17px;background:#fafafa}
+input:focus{outline:2px solid var(--colore);border-color:transparent;background:#fff}
+.err{color:#c0221f;font-size:14px;margin:4px 0 0}
+fieldset{border:0;padding:0;margin:0 0 16px}
+legend{font-weight:700;font-size:16px;margin:0 0 8px;padding:0}
+.ops{display:grid;gap:8px}
+.op{display:flex;gap:10px;align-items:center;border:1px solid #d6d6d6;border-radius:12px;padding:13px 14px;cursor:pointer;font-size:16px}
+.op input{width:20px;height:20px;accent-color:var(--colore);margin:0}
+.op:has(input:checked){border-color:var(--colore);background:#fafafa;font-weight:600}
+.sicuri{text-align:center;font-size:13.5px;color:#666;margin:10px 0 0}
+.sicuri a{color:#666}
+.trappola{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.scheda .cta{max-width:none}
+.scheda .cta:disabled{opacity:.6}
+.grazie{text-align:center;padding-top:30px;padding-bottom:40px}
+.grazie h1{font-size:28px}
+.grazie iframe{width:100%;height:720px;border:0;border-radius:14px;margin:10px 0;background:#f6f5f3}
+.cta.wa{background:#25D366;color:#fff}
+.nota{color:#555}
+.spunta{width:64px;height:64px;border-radius:50%;background:var(--colore);color:var(--su-colore);display:grid;place-items:center;font-size:34px;margin:0 auto 14px}
+.privacy .scheda{border-radius:20px;font-size:15px;line-height:1.5}
+.privacy h2{text-align:left;font-size:21px}
+.cookie{position:fixed;left:12px;right:12px;bottom:12px;max-width:520px;margin:0 auto;background:#111;color:#fff;border-radius:14px;padding:14px;font-size:14px;z-index:20;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cookie[hidden]{display:none}
+.cookie p{margin:0;flex:1 1 220px}.cookie a{color:#fff}
+.cookie button{border:0;border-radius:10px;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer}
+.cookie .si{background:#fff;color:#111}.cookie .no{background:#333;color:#fff}
+@media(min-width:700px){h1{font-size:40px}.fisso{display:none}footer{padding-bottom:40px}}
+</style>
+</head>
+<body>
+
+<!-- TESTO: fascia in alto, una domanda che chiama il cliente ideale -->
+<div class="banda">Libero professionista in regime forfettario?</div>
+
+<!-- Logo: se c'è il file logo.png si usa quello, altrimenti il nome -->
+<header class="top"><img class="logo" src="logo.png" alt="Nome dello studio" onerror="this.outerHTML='<span class=marchio>Nome dello studio</span>'"></header>
+
+<main>
+  <!-- SEZIONE 1 · Titolo -->
+  <section class="hero">
+    <!-- TESTO: titolo, la promessa -->
+    <h1>Scopri quante tasse puoi risparmiare quest'anno, in una call di 20 minuti</h1>
+    <!-- TESTO: sottotitolo -->
+    <p class="sotto">Guardiamo insieme i tuoi numeri veri e ti dico cosa cambiare prima di dicembre.</p>
+    <img class="foto" src="foto.jpg" alt="Nome Cognome" data-apri onerror="this.remove()">
+    <!-- Solo per la vendita diretta: <p class="prezzo">97 €</p> -->
+    <!-- TESTO: bottone e riga piccola (uguali in tutti e tre i bottoni) -->
+    <button class="cta" data-apri>Sì, voglio la mia call gratuita<small>Gratis, 20 minuti, scegli tu il giorno</small></button>
+  </section>
+
+  <!-- SEZIONE 2 · Cosa ottieni -->
+  <section>
+    <h2>Cosa ottieni nella call</h2>
+    <ul class="lista">
+      <li>Il conto di quanto stai pagando in più, sui tuoi numeri</li>
+      <li>Le 3 mosse da fare entro fine anno, scritte nero su bianco</li>
+      <li>Una risposta chiara: ti conviene restare forfettario o no</li>
+    </ul>
+  </section>
+
+  <!-- SEZIONE 3 · Prova. Solo testimonianze vere, con nome e lavoro. Se non ce ne sono, togli tutta la sezione. -->
+  <section class="prova">
+    <h2>Chi l'ha già fatto</h2>
+    <div class="voce">
+      <p>«[DA INSERIRE: frase vera del cliente, con il risultato]»</p>
+      <div class="chi"><span><b>Nome C.</b>Lavoro, città</span></div>
+    </div>
+  </section>
+
+  <!-- (Solo traffico freddo, facoltativa) SEZIONE «Per chi è»: un <h2> e una <ul class="lista"> con 3 punti -->
+
+  <!-- SEZIONE 4 · Bottone finale -->
+  <section class="finale">
+    <!-- TESTO: una frase che spinge a decidere ora, senza false urgenze -->
+    <h2>Ti bastano 20 minuti per sapere quanto puoi risparmiare.</h2>
+    <button class="cta" data-apri>Sì, voglio la mia call gratuita<small>Gratis, 20 minuti, scegli tu il giorno</small></button>
+  </section>
+</main>
+
+<!-- Pagina di grazie: compare dopo l'invio, nella stessa pagina -->
+<div class="grazie" id="grazie" hidden>
+  <div class="spunta">✓</div>
+  <p id="g-ciao" style="margin:0;font-weight:700"></p>
+  <!-- TESTO: titolo e testo di grazie -->
+  <h1>Ci sei quasi: ultimo passo</h1>
+  <p class="nota">Scegli il giorno e l'ora che preferisci. Ti arriva subito la conferma.</p>
+  <iframe id="g-cal" title="Calendario" hidden></iframe>
+  <p><a id="g-azione" class="cta" href="#" target="_blank" rel="noopener" hidden>Apri il calendario</a></p>
+  <p><a id="g-wa" class="cta wa" href="#" target="_blank" rel="noopener" hidden>Scrivimi su WhatsApp</a></p>
+</div>
+
+<!-- Fondo pagina: dati obbligatori del cliente -->
+<footer>
+  <p>© 2026 Nome o ragione sociale · P.IVA 00000000000</p>
+  <p>Indirizzo · <a href="mailto:info@dominio.it">info@dominio.it</a></p>
+  <p><a href="#privacy" data-privacy>Privacy e cookie</a></p>
+</footer>
+
+<div class="fisso"><button class="cta" data-apri>Sì, voglio la mia call gratuita<small>Gratis, 20 minuti, scegli tu il giorno</small></button></div>
+
+<!-- Il modulo -->
+<div class="velo" id="modulo" hidden role="dialog" aria-modal="true" aria-labelledby="m-titolo">
+  <div class="scheda">
+    <button class="x" data-chiudi aria-label="Chiudi">×</button>
+    <form id="passo1" novalidate>
+      <!-- TESTO: titolo del modulo -->
+      <h3 id="m-titolo">Prenota la tua call gratuita</h3>
+      <p class="passi" id="m-passi">Passo 1 di 2</p>
+      <div class="campo"><label for="f-nome">Nome e cognome</label><input id="f-nome" type="text" autocomplete="name"><p class="err" id="e-nome" hidden></p></div>
+      <div class="campo"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email" inputmode="email"><p class="err" id="e-email" hidden></p></div>
+      <div class="campo"><label for="f-tel">Telefono (WhatsApp)</label><input id="f-tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39 333 1234567"><p class="err" id="e-tel" hidden></p></div>
+      <!-- Consenso esplicito: compare solo se CONFIG.consenso ha un testo (dati sanitari, minori) -->
+      <div class="campo" id="c-consenso" hidden><label class="op" style="font-weight:400;font-size:14px"><input type="checkbox" id="f-consenso"><span id="t-consenso"></span></label><p class="err" id="e-consenso" hidden></p></div>
+      <input class="trappola" id="f-sito" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="cta" type="submit">Continua</button>
+      <p class="sicuri">🔒 I tuoi dati sono al sicuro. <a href="#privacy" data-privacy>Privacy</a></p>
+    </form>
+    <!-- Le domande: le crea il codice da CONFIG.domande -->
+    <form id="passo2" novalidate hidden>
+      <!-- TESTO: titolo, sottotitolo e bottone del passo 2 (solo funnel call) -->
+      <h3>Ancora qualche risposta veloce</h3>
+      <p class="passi">Passo 2 di 2 · Serve a preparare la call su di te</p>
+      <div id="domande"></div>
+      <button class="cta" type="submit">Prenota la call</button>
+    </form>
+  </div>
+</div>
+
+<!-- Privacy base: titolare, dati, finalità, tempi, fornitori, diritti. Cambia i dati del titolare e l'elenco dei fornitori. -->
+<div class="velo privacy" id="privacy" hidden>
+  <div class="scheda"><button class="x" data-chiudi-p aria-label="Chiudi">×</button>
+    <h2>Informativa privacy</h2>
+    <p><b>Titolare del trattamento:</b> Nome o ragione sociale, P.IVA 00000000000, indirizzo. Email: info@dominio.it.</p>
+    <p><b>Dati raccolti:</b> nome, email, telefono e le risposte che scegli di dare nel modulo, oltre alla pagina di provenienza.</p>
+    <p><b>Perché li usiamo:</b> per risponderti e ricontattarti su quello che hai chiesto. La base giuridica è la tua richiesta (art. 6.1.b GDPR).</p>
+    <p><b>Per quanto tempo:</b> fino a 24 mesi dall'ultimo contatto, poi li cancelliamo.</p>
+    <!-- Fornitori: tieni solo quelli usati davvero (Cloudflare sempre se la pagina è su Cloudflare) -->
+    <p><b>Chi li tratta per nostro conto:</b> Cloudflare (hosting della pagina); Google (foglio dei contatti ed email); il servizio di prenotazione degli appuntamenti; Meta Platforms e Google Analytics solo con il tuo consenso. I dati non vengono venduti né ceduti ad altri.</p>
+    <p><b>Cookie:</b> la pagina usa solo cookie tecnici. Gli strumenti di misurazione si attivano solo se premi «Accetta» nel banner. Il calendario di prenotazione, se lo apri, mostra la sua informativa sui cookie.</p>
+    <p><b>I tuoi diritti:</b> accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) scrivendo a info@dominio.it. Puoi fare reclamo al Garante per la protezione dei dati personali (garanteprivacy.it).</p>
+  </div>
+</div>
+
+<!-- Banner cookie: compare solo se in CONFIG c'è il pixel o Google Analytics -->
+<div class="cookie" id="cookie" hidden><p>Usiamo cookie di misurazione per capire se questa pagina funziona. <a href="#privacy" data-privacy>Dettagli</a></p><button class="no" data-cookie="no">Rifiuta</button><button class="si" data-cookie="si">Accetta</button></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CONFIG · l'unica parte da cambiare
+   ═══════════════════════════════════════════════════════════════ */
+const CONFIG = {
+  funnel: 'Call gratuita',          // nome interno: compare nel foglio dei contatti
+  tipo: 'call',                     // 'call' | 'regalo' | 'vendita'
+
+  // Dove vanno i contatti. Con GitHub + Cloudflare: ['/api/lead'].
+  // Senza: l'indirizzo dello script Google (finisce con /exec) o del webhook del CRM.
+  invio: ['/api/lead'],
+
+  // Solo per 'call': 1-3 domande. opzioni = [] per una risposta libera.
+  domande: [
+    { testo: 'Che lavoro fai?', opzioni: [] },
+    { testo: 'Quanto fatturi in un anno?', opzioni: ['Meno di 30.000 €', 'Da 30.000 a 85.000 €', 'Oltre 85.000 €'] },
+    { testo: 'Quando vuoi partire?', opzioni: ['Subito', 'Entro 3 mesi', 'Sto solo guardando'] }
+  ],
+
+  calendario: '',   // 'call': link Calendly, Cal.com o Google Calendar prenotazioni
+  regalo: '',       // 'regalo': link del PDF/video. Testo del bottone in regaloBottone
+  regaloBottone: 'Apri il regalo',
+  pagamento: '',    // 'vendita': link Stripe o PayPal (la pagina ci porta dopo 1,5 secondi)
+  whatsapp: '',     // facoltativo, solo numeri con prefisso: '393331234567'
+  consenso: '',     // facoltativo: testo della casella obbligatoria, es. per dati sanitari
+                    // 'Acconsento al trattamento dei dati sulla mia salute per la valutazione (art. 9 GDPR)'
+  testoAzione: '',  // facoltativo: testo del bottone nella pagina di grazie (se vuoto: Apri il calendario / Vai al pagamento)
+
+  pixel: '',        // facoltativo: ID del Pixel di Meta (solo numeri)
+  ga: ''            // facoltativo: ID Google Analytics 'G-XXXXXXX'
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   Il motore della pagina. Non serve toccarlo.
+   ═══════════════════════════════════════════════════════════════ */
+(function(C){
+  var $ = function(s){ return document.querySelector(s); };
+  var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  function link(u){ u = String(u || '').trim(); if(!u) return ''; if(!/^https?:\/\//i.test(u)) u = 'https://' + u; try{ return new URL(u).toString(); }catch(e){ return ''; } }
+  C.calendario = link(C.calendario); C.regalo = link(C.regalo); C.pagamento = link(C.pagamento);
+  var domande = C.tipo === 'call' ? (C.domande || []).filter(function(d){ return d && d.testo; }) : [];
+
+  /* provenienza: si ricorda gli utm anche se la persona ricarica la pagina */
+  var q = new URLSearchParams(location.search), prov = {};
+  var chiavi = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+  var nuova = chiavi.some(function(k){ return q.get(k); });   /* un link nuovo sostituisce tutta la provenienza vecchia */
+  chiavi.forEach(function(k){
+    var v = q.get(k) || '';
+    try{ if(nuova) sessionStorage.setItem('f_' + k, v); else v = sessionStorage.getItem('f_' + k) || ''; }catch(e){}
+    prov[k] = v;
+  });
+
+  /* il colore della barra del browser segue --colore */
+  try{ var col = getComputedStyle(document.documentElement).getPropertyValue('--colore').trim(); if(col) document.querySelector('meta[name=theme-color]').content = col; }catch(e){}
+
+  /* consenso esplicito */
+  if(C.consenso){ $('#c-consenso').hidden = false; $('#t-consenso').textContent = C.consenso; }
+
+  /* le domande del passo 2 */
+  $('#domande').innerHTML = domande.map(function(d, i){
+    var campo = d.opzioni && d.opzioni.length
+      ? '<div class="ops">' + d.opzioni.map(function(o){ return '<label class="op"><input type="radio" name="d' + i + '" value="' + esc(o) + '"><span>' + esc(o) + '</span></label>'; }).join('') + '</div>'
+      : '<input id="d' + i + '" type="text" autocomplete="off">';
+    return '<fieldset><legend>' + esc(d.testo) + '</legend>' + campo + '<p class="err" id="e-d' + i + '" hidden></p></fieldset>';
+  }).join('');
+  if(!domande.length) $('#m-passi').textContent = 'Un ultimo passo';
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  /* apri e chiudi il modulo */
+  var modulo = $('#modulo'), dati = {};
+  function passo(n){ $('#passo1').hidden = n !== 1; $('#passo2').hidden = n !== 2; }
+  function apri(){ modulo.hidden = false; document.body.style.overflow = 'hidden'; passo(1); setTimeout(function(){ $('#f-nome').focus(); }, 50); }
+  function chiudi(){ modulo.hidden = true; document.body.style.overflow = ''; }
+  $$('[data-apri]').forEach(function(b){ b.addEventListener('click', apri); });
+  $$('[data-chiudi]').forEach(function(b){ b.addEventListener('click', chiudi); });
+  modulo.addEventListener('click', function(e){ if(e.target === modulo) chiudi(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ chiudi(); $('#privacy').hidden = true; } });
+
+  /* bottone fisso in basso: compare quando il primo bottone esce dallo schermo */
+  var fisso = $('.fisso'), primo = $('.hero .cta');
+  if('IntersectionObserver' in window) new IntersectionObserver(function(v){ fisso.classList.toggle('su', !v[0].isIntersecting && $('#grazie').hidden); }).observe(primo);
+
+  /* privacy */
+  $$('[data-privacy]').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); $('#privacy').hidden = false; }); });
+  $('#privacy').addEventListener('click', function(e){ if(e.target.id === 'privacy' || e.target.hasAttribute('data-chiudi-p')) $('#privacy').hidden = true; });
+
+  /* cookie: pixel e analytics partono solo con il consenso */
+  function accendi(){
+    if(C.pixel){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', C.pixel); fbq('track', 'PageView');
+    }
+    if(C.ga){
+      var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(C.ga); document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', C.ga);
+    }
+  }
+  if(C.pixel || C.ga){
+    var consenso = null; try{ consenso = localStorage.getItem('f_consenso'); }catch(e){}
+    if(consenso === 'si') accendi(); else if(consenso !== 'no') $('#cookie').hidden = false;
+    $$('[data-cookie]').forEach(function(b){ b.addEventListener('click', function(){
+      var si = b.getAttribute('data-cookie') === 'si';
+      try{ localStorage.setItem('f_consenso', si ? 'si' : 'no'); }catch(e){}
+      $('#cookie').hidden = true; if(si) accendi();
+    }); });
+  }
+
+  /* passo 1: i contatti */
+  function errore(id, msg){ var e = $('#e-' + id); e.textContent = msg || ''; e.hidden = !msg; return !msg; }
+  function telefono(t){
+    var d = String(t).replace(/[^\d+]/g, '');
+    if(d.indexOf('00') === 0) d = '+' + d.slice(2);
+    if(d.charAt(0) !== '+' && /^3\d{8,9}$/.test(d)) d = '+39' + d;
+    return d;
+  }
+  $('#passo1').addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome = $('#f-nome').value.trim(), email = $('#f-email').value.trim(), tel = telefono($('#f-tel').value.trim());
+    var ok = errore('nome', nome.length < 2 ? 'Scrivi il tuo nome' : '');
+    ok = errore('email', /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email) ? '' : 'Controlla l\'email') && ok;
+    ok = errore('tel', tel.replace(/\D/g, '').length < 8 ? 'Controlla il numero' : '') && ok;
+    if(C.consenso) ok = errore('consenso', $('#f-consenso').checked ? '' : 'Serve il tuo consenso per continuare') && ok;
+    if(!ok) return;
+    dati = { nome: nome, email: email, telefono: tel, consenso: C.consenso ? 'sì' : '', trappola: $('#f-sito').value };
+    if(domande.length) passo(2); else invia();
+  });
+
+  /* passo 2: le domande */
+  $('#passo2').addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    dati.risposte = domande.map(function(d, i){
+      var scelta = document.querySelector('input[name="d' + i + '"]:checked'), t = $('#d' + i);
+      var v = scelta ? scelta.value : (t ? t.value.trim() : '');
+      ok = errore('d' + i, v ? '' : 'Rispondi a questa domanda') && ok;
+      return v;
+    });
+    if(ok) invia();
+  });
+
+  /* invio: un solo pacchetto con nomi leggibili (per il foglio) e nomi standard (per il CRM) */
+  function invia(){
+    $$('#modulo button[type=submit]').forEach(function(b){ b.disabled = true; b.textContent = 'Invio in corso...'; });
+    var d = new Date(), pagina = location.origin + location.pathname;
+    var lead = {
+      'Data': d.toLocaleDateString('it-IT') + ' ' + d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }),
+      'Nome': dati.nome, 'Email': dati.email, 'Telefono': dati.telefono
+    };
+    domande.forEach(function(q, i){ lead[q.testo] = (dati.risposte || [])[i] || ''; });
+    if(C.consenso) lead['Consenso'] = 'sì, ' + lead['Data'];
+    lead['Funnel'] = C.funnel; lead['Fonte'] = prov.utm_source; lead['Mezzo'] = prov.utm_medium;
+    lead['Campagna'] = prov.utm_campaign; lead['Contenuto'] = prov.utm_content; lead['Pagina'] = pagina;
+    lead._crm = JSON.stringify({ nome: dati.nome, full_name: dati.nome, email: dati.email, phone: dati.telefono, telefono: dati.telefono,
+      risposte: domande.map(function(q, i){ return { domanda: q.testo, risposta: (dati.risposte || [])[i] || '' }; }),
+      funnel: C.funnel, pagina: pagina, utm_source: prov.utm_source, utm_medium: prov.utm_medium, utm_campaign: prov.utm_campaign,
+      utm_content: prov.utm_content, fbclid: prov.fbclid, gclid: prov.gclid });
+    if(dati.trappola) lead._trappola = '1';
+
+    var lavori = (C.invio || []).filter(Boolean).map(function(url){
+      /* Lo script Google risponde da un altro dominio: 'no-cors' basta, il contatto arriva lo stesso */
+      return fetch(url, { method: 'POST', mode: url.charAt(0) === '/' ? 'same-origin' : 'no-cors', keepalive: true, body: new URLSearchParams(lead) })
+        .then(function(r){ if(r.type !== 'opaque' && !r.ok) console.error('Contatto NON salvato: ' + url + ' ha risposto ' + r.status); })
+        .catch(function(e){ console.error('Contatto NON salvato: ' + url, e); });
+    });
+    try{ if(window.fbq) fbq('track', 'Lead', {}, { eventID: 'lead-' + Date.now() }); }catch(e){}
+    try{ if(window.gtag) gtag('event', 'generate_lead'); }catch(e){}
+    Promise.race([Promise.all(lavori), new Promise(function(r){ setTimeout(r, 4000); })]).then(grazie);
+  }
+
+  /* la pagina di grazie */
+  function grazie(){ try{ mostraGrazie(); }catch(e){ console.error(e); $('main').hidden = true; $('#grazie').hidden = false; } }
+  function mostraGrazie(){
+    chiudi(); $('main').hidden = true; $('#grazie').hidden = false; fisso.classList.remove('su'); window.scrollTo(0, 0);
+    var nome = (dati.nome || '').split(' ')[0]; if(nome) $('#g-ciao').textContent = 'Grazie ' + nome + '.';
+    var az = $('#g-azione');
+    if(C.tipo === 'call' && C.calendario){
+      var x = new URL(C.calendario), h = x.hostname;
+      if(/(^|\.)calendly\.com$/.test(h)){ x.searchParams.set('name', dati.nome); x.searchParams.set('email', dati.email); x.searchParams.set('embed_type', 'Inline'); x.searchParams.set('embed_domain', location.hostname); }
+      if(/(^|\.)cal\.com$/.test(h)){ x.searchParams.set('name', dati.nome); x.searchParams.set('email', dati.email); x.searchParams.set('embed', 'true'); }
+      if(/(^|\.)(calendly\.com|cal\.com|calendar\.google\.com)$/.test(h)){ $('#g-cal').src = x.toString(); $('#g-cal').hidden = false; }
+      az.href = x.toString(); az.textContent = C.testoAzione || 'Apri il calendario'; az.hidden = false;
+    }
+    if(C.tipo === 'regalo' && C.regalo){ az.href = C.regalo; az.textContent = C.testoAzione || C.regaloBottone || 'Apri il regalo'; az.hidden = false; }
+    if(C.tipo === 'vendita' && C.pagamento){ az.href = C.pagamento; az.removeAttribute('target'); az.textContent = C.testoAzione || 'Vai al pagamento'; az.hidden = false; setTimeout(function(){ location.href = C.pagamento; }, 1500); }
+    if(C.whatsapp){ var wa = $('#g-wa'); wa.href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent('Ciao, sono ' + dati.nome + ', mi sono appena iscritto dalla tua pagina.'); wa.hidden = false; }
+  }
+})(CONFIG);
+</script>
+</body>
+</html>
